@@ -2,17 +2,17 @@ import React from 'react'
 import axios from 'axios'
 import markdown from 'marked'
 import { string, shape } from 'prop-types'
-
 import BackButton from './BackButton'
 import NextButton from './NextButton'
+import Loading from './Loading'
 
 const constants = require('../.env.json')
 
 class Challenges extends React.Component {
   static propTypes = {
     location: shape({
-      pathname: string,
-    }),
+      pathname: string
+    })
   }
   constructor (props) {
     super(props)
@@ -46,6 +46,9 @@ class Challenges extends React.Component {
   }
 
   render () {
+    if (this.state.contents === null) {
+      return <Loading />
+    }
     return (
       <div>
         <div dangerouslySetInnerHTML={{ __html: this.state.contents }} />

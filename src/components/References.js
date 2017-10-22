@@ -5,6 +5,7 @@ import { string, shape } from 'prop-types'
 
 import BackButton from './BackButton'
 import NextButton from './NextButton'
+import Loading from './Loading'
 
 const constants = require('../.env.json')
 
@@ -47,6 +48,9 @@ class References extends React.Component {
   }
 
   render () {
+    if (null === this.state.contents) {
+      return <Loading />
+    }
     return (
       <div>
         <div dangerouslySetInnerHTML={{ __html: this.state.contents }} />
@@ -54,6 +58,7 @@ class References extends React.Component {
         <NextButton />
       </div>
     )
+
   }
 }
 
