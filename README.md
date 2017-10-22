@@ -14,7 +14,7 @@ You need to add some 'secrets' in `src/` folder named `src/.env.json` with this 
 ```json
 {
   "GITHUB_TOKEN": "",
-  "BASE_URL" : "https://api.github.com/repos/rizafahmi/react-dds-courses"
+  "BASE_URL" : "https://api.github.com/repos/rizafahmi/dds-courses-content-example"
 }
 ```
 
