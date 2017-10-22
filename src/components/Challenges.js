@@ -1,10 +1,16 @@
 import React from 'react'
 import axios from 'axios'
 import markdown from 'marked'
+import { string, shape } from 'prop-types'
 
 const constants = require('../.env.json')
 
 class Challenges extends React.Component {
+  static propTypes = {
+    location: shape({
+      pathname: string,
+    }),
+  }
   constructor (props) {
     super(props)
 
