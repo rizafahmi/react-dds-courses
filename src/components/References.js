@@ -1,14 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import markdown from 'marked'
-import PropTypes from 'prop-types'
 
 const constants = require('../.env.json')
 
-class File extends React.Component {
-  static propTypes = {
-    file: PropTypes.object
-  }
+class References extends React.Component {
   constructor (props) {
     super(props)
 
@@ -17,11 +13,12 @@ class File extends React.Component {
     }
   }
   componentDidMount () {
-    let { file } = this.props
-    if (file.path[0] === '/') {
-      file.path = file.path.slice(1, file.path.length)
+    let { pathname } = this.props.location
+
+    if (pathname[0] === '/') {
+      pathname = pathname.slice(1, pathname.length)
     }
-    const url = `${constants.BASE_URL}/contents/${file.path}`
+    const url = `${constants.BASE_URL}/contents/${pathname}`
     axios
       .get(url, {
         headers: {
@@ -44,4 +41,4 @@ class File extends React.Component {
   }
 }
 
-export default File
+export default References
