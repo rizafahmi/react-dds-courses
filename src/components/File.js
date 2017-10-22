@@ -1,10 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 import markdown from 'marked'
+import PropTypes from 'prop-types'
 
 const constants = require('../.env.json')
 
 class File extends React.Component {
+  static propTypes = {
+    file: PropTypes.object
+  }
   constructor (props) {
     super(props)
 
