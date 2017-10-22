@@ -3,6 +3,9 @@ import axios from 'axios'
 import markdown from 'marked'
 import { string, shape } from 'prop-types'
 
+import BackButton from './BackButton'
+import NextButton from './NextButton'
+
 const constants = require('../.env.json')
 
 class References extends React.Component {
@@ -11,7 +14,7 @@ class References extends React.Component {
       pathname: string,
     }),
   }
-  
+
   constructor (props) {
     super(props)
 
@@ -44,7 +47,13 @@ class References extends React.Component {
   }
 
   render () {
-    return <div dangerouslySetInnerHTML={{ __html: this.state.contents }} />
+    return (
+      <div>
+        <div dangerouslySetInnerHTML={{ __html: this.state.contents }} />
+        <BackButton />
+        <NextButton />
+      </div>
+    )
   }
 }
 

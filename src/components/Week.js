@@ -2,6 +2,8 @@ import React from 'react'
 import { string, shape } from 'prop-types'
 
 import File from './File'
+import BackButton from './BackButton'
+import NextButton from './NextButton'
 
 class Week extends React.Component {
   static propTypes = {
@@ -9,7 +11,7 @@ class Week extends React.Component {
       pathname: string,
     }),
   }
-  
+
   constructor (props) {
     super(props)
 
@@ -18,7 +20,13 @@ class Week extends React.Component {
     }
   }
   render () {
-    return <File file={{path: this.props.location.pathname + 'README.md'}} />
+    return (
+      <div>
+        <File file={{path: this.props.location.pathname + 'README.md'}} {...this.props} />
+        <BackButton />
+        <NextButton />
+      </div>
+    )
   }
 }
 

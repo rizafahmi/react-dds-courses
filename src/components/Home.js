@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 
 import File from './File'
+import BackButton from './BackButton'
+import NextButton from './NextButton'
 
 const secret = require('../.env.json')
 const BASE_URL = secret.BASE_URL
@@ -47,6 +49,8 @@ export default class Home extends React.Component {
         <pre>
           {this.state.directories && JSON.stringify(this.state.directories)}
         </pre>
+        <BackButton />
+        <NextButton />
       </div>
     )
   }
