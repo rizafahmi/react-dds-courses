@@ -1,8 +1,15 @@
 import React from 'react'
+import { string, shape } from 'prop-types'
 
 import File from './File'
 
 class Week extends React.Component {
+  static propTypes = {
+    location: shape({
+      pathname: string,
+    }),
+  }
+  
   constructor (props) {
     super(props)
 
