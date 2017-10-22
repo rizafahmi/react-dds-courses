@@ -13,9 +13,13 @@ class File extends React.Component {
     }
   }
   componentDidMount () {
-    const { file } = this.props
+    let { file } = this.props
+    if (file.path[0] === '/') {
+      file.path = file.path.slice(1, file.path.length)
+    }
+    const url = `${constants.BASE_URL}/contents/${file.path}`
     axios
-      .get(`${constants.BASE_URL}/contents/${file.path}`, {
+      .get(url, {
         headers: {
           Authorization: `Bearer ${constants.GITHUB_TOKEN}`
         }
