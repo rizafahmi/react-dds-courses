@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import File from './File'
+import Loading from './Loading'
 
 const secret = require('../.env.json')
 const BASE_URL = secret.BASE_URL
@@ -33,6 +34,10 @@ export default class Home extends React.Component {
       .catch(err => console.log(err))
   }
   render () {
+    if (null === this.state.files || null === this.state.directories) {
+      return <Loading />
+    }
+
     return (
       <div>
         {this.state.files &&

@@ -18,24 +18,27 @@ const defaultStyles = {
 }
 
 export default class Loading extends React.Component {
-  TYPES = [
+  static TYPES = [
     'TEXT',
     'IMAGE'
   ]
 
   static propTypes = {
-    type: PropTypes.oneOf(this.TYPES),
+    type: PropTypes.oneOf(Loading.TYPES),
     text: PropTypes.string,
     imageSource: PropTypes.string,
-    style: PropTypes.style,
-    textStyle: PropTypes.style,
-    imageStyle: PropTypes.style,
+    style: PropTypes.object,
+    textStyle: PropTypes.object,
+    imageStyle: PropTypes.object,
   }
 
   static defaultProps = {
     type: 'TEXT',
     text: 'Loading...',
     source: 'https://loading.io/spinners/ball/lg.bouncing-circle-loading-icon.gif',
+    style: {},
+    textStyle: {},
+    imageStyle: {},
   }
 
   constructor(p, c) {
@@ -55,7 +58,7 @@ export default class Loading extends React.Component {
 
   _renderImage() {
     return (
-      <img src={this.props.source} style={{ ...defaultStyles.image, ...this.props.imageStyle }} />
+      <img alt="Loading" src={this.props.source} style={{ ...defaultStyles.image, ...this.props.imageStyle }} />
     )
   }
 

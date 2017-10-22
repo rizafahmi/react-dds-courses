@@ -3,6 +3,7 @@ import axios from 'axios'
 import markdown from 'marked'
 import { string, shape } from 'prop-types'
 
+import Loading from './Loading'
 const constants = require('../.env.json')
 
 class Challenges extends React.Component {
@@ -43,6 +44,10 @@ class Challenges extends React.Component {
   }
 
   render () {
+    if (null === this.state.contents) {
+      return <Loading />
+    }
+
     return <div dangerouslySetInnerHTML={{ __html: this.state.contents }} />
   }
 }
