@@ -3,6 +3,8 @@
 Drop dead simple online course CMS based on Git and Markdown.
 Designed specifically for me :)
 
+It's like GitBook, but for online courses.
+
 * [x] Read and render README.md in root folder
 * [x] Routing to `week`s
 * [x] Read and render README.md in each `week`
