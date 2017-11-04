@@ -8,6 +8,9 @@ It's like GitBook, but for online courses.
 * [x] Read and render README.md in root folder
 * [x] Routing to `week`s
 * [x] Read and render README.md in each `week`
+* [] Course directories/navigation
+* [] Caching API
+* [] Emoji support
 
 ## Getting Started
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import axios from 'axios'
-import markdown from 'marked'
 import { string, shape } from 'prop-types'
 import BackButton from './BackButton'
 import NextButton from './NextButton'
 import Loading from './Loading'
 
+import markdownToHtml from '../helpers'
 const constants = require('../.env.json')
 
 class Challenges extends React.Component {
@@ -39,7 +39,7 @@ class Challenges extends React.Component {
           'ascii'
         )
         this.setState({
-          contents: markdown(content)
+          contents: markdownToHtml(content)
         })
       })
       .catch(err => console.log(err))

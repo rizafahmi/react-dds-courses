@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import markdown from 'marked'
 import { string, shape } from 'prop-types'
 
+import markdownToHtml from '../helpers'
 import BackButton from './BackButton'
 import NextButton from './NextButton'
 import Loading from './Loading'
@@ -12,8 +12,8 @@ const constants = require('../.env.json')
 class References extends React.Component {
   static propTypes = {
     location: shape({
-      pathname: string,
-    }),
+      pathname: string
+    })
   }
 
   constructor (props) {
@@ -41,14 +41,14 @@ class References extends React.Component {
           'ascii'
         )
         this.setState({
-          contents: markdown(content)
+          contents: markdownToHtml(content)
         })
       })
       .catch(err => console.log(err))
   }
 
   render () {
-    if (null === this.state.contents) {
+    if (this.state.contents === null) {
       return <Loading />
     }
     return (
@@ -58,7 +58,6 @@ class References extends React.Component {
         <NextButton />
       </div>
     )
-
   }
 }
 
