@@ -8,21 +8,13 @@ import NextButton from './NextButton'
 class Week extends React.Component {
   static propTypes = {
     location: shape({
-      pathname: string,
-    }),
-  }
-
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      contents: null
-    }
+      pathname: string
+    })
   }
   render () {
     return (
       <div>
-        <File file={{path: this.props.location.pathname + 'README.md'}} {...this.props} />
+        <File file={{ path: this.props.location.pathname + 'README.md' }} />
         <BackButton />
         <NextButton />
       </div>
