@@ -15,6 +15,11 @@ class App extends Component {
           <Route exact path='/:path' component={Week} />
           <Route
             exact
+            path='/:path/challenges/:challenge_name/:filename'
+            component={Challenges}
+          />
+          <Route
+            exact
             path='/:path/challenges/:filename'
             component={Challenges}
           />
